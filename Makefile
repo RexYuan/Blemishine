@@ -1,8 +1,10 @@
 
-.PHONY: zsh
-zsh:
-	$(MAKE) -C zsh all
+DIRS = $(wildcard */)
 
-.PHONY: clean
-clean:
-	$(MAKE) -C zsh clean
+TARGETS := all clean
+
+.PHONY: $(TARGETS)
+$(TARGETS):
+	for dir in $(DIRS); do \
+		$(MAKE) -C $$dir $@; \
+	done
