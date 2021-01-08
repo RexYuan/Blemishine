@@ -1,10 +1,17 @@
 
 DIRS = $(wildcard */)
 
-TARGETS := all clean
+define mapdirs
+for dir in $(DIRS); do \
+	$(call submake,$$dir,$(1)); \
+done
+endef
 
-.PHONY: $(TARGETS)
-$(TARGETS):
-	for dir in $(DIRS); do \
-		$(MAKE) -C $$dir $@; \
-	done
+define submake
+$(MAKE) -C $(1) $(2)
+endef
+
+.DEFAULT_GOAL := all
+
+.DEFAULT:
+	$(call mapdirs,$@)
