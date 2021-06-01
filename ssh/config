@@ -5,6 +5,7 @@ Host quine
 Host frege
     HostName frege.iis.sinica.edu.tw
     User rex
+    ProxyJump quine
 
 Host uvm
     HostName localhost
