@@ -1,0 +1,38 @@
+Host den
+    HostName den.rexy.xyz
+    User rex
+    Port 7777
+Host nuc
+    HostName 192.168.0.103
+    User rex
+    Port 7777
+Host air
+    HostName 192.168.0.168
+    User Rex
+Host imac
+    HostName 192.168.0.162
+    User cp
+Host jaid
+    HostName jaid.ddns.net
+    User rex
+    Port 7777
+Host frege
+    HostName frege.iis.sinica.edu.tw
+    User rex
+Host quine
+    HostName quine.iis.sinica.edu.tw
+    User rex
+Host aigecko
+    HostName 140.122.184.73
+    User rex
+    Port 5566
+Host fm3
+    HostName 140.109.16.44
+    User rex
+Host pi
+    HostName 192.168.0.166
+    User pi
+Host uvm
+    HostName localhost
+    Port 2375
+    User urex
