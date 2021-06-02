@@ -9,6 +9,7 @@
 source "$BLEM/zsh/rc_paths.zsh"
 source "$BLEM/zsh/rc_aliases.zsh"
 source "$BLEM/zsh/rc_funcs.zsh"
+source "$BLEM/zsh/rc_history.zsh"
 
 # opam configuration
 test -r /Users/rexyuan/.opam/opam-init/init.zsh && . /Users/rexyuan/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
