@@ -1,0 +1,10 @@
+[user]
+	name = RexYuan
+	email = r1218r1218@gmail.com
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = ~/.gitignore
+	editor = code --wait
+[alias]
+	s = status
