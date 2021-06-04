@@ -10,3 +10,9 @@
 [submodule "zsh/lib/zsh-syntax-highlighting"]
 	path = zsh/lib/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "terminal/tomorrow-theme"]
+	path = terminal/tomorrow-theme
+	url = https://github.com/chriskempson/tomorrow-theme.git
+[submodule "terminal/vscode-base16-term"]
+	path = terminal/vscode-base16-term
+	url = https://github.com/Glitchbone/vscode-base16-term.git
