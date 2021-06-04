@@ -10,7 +10,6 @@ source "$BLEM/zsh/rc_paths.zsh"
 source "$BLEM/zsh/rc_aliases.zsh"
 source "$BLEM/zsh/rc_funcs.zsh"
 source "$BLEM/zsh/rc_history.zsh"
-source "$BLEM/zsh/rc_libs.zsh"
 
 # opam configuration
 test -r /Users/rexyuan/.opam/opam-init/init.zsh && . /Users/rexyuan/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -20,3 +19,5 @@ zle -N bracketed-paste bracketed-paste-magic
 
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
+
+source "$BLEM/zsh/rc_libs.zsh"

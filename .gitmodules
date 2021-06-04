@@ -7,3 +7,6 @@
 [submodule "zsh/lib/vscode-snazzy"]
 	path = zsh/lib/vscode-snazzy
 	url = https://github.com/Tyriar/vscode-snazzy.git
+[submodule "zsh/lib/zsh-syntax-highlighting"]
+	path = zsh/lib/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
