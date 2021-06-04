@@ -1,3 +1,9 @@
 [submodule "zsh/lib/pure"]
 	path = zsh/lib/pure
 	url = https://github.com/sindresorhus/pure.git
+[submodule "zsh/lib/terminal-snazzy"]
+	path = zsh/lib/terminal-snazzy
+	url = https://github.com/sindresorhus/terminal-snazzy.git
+[submodule "zsh/lib/vscode-snazzy"]
+	path = zsh/lib/vscode-snazzy
+	url = https://github.com/Tyriar/vscode-snazzy.git
