@@ -7,4 +7,4 @@ function mapargs
     done
 }
 
-source "$BLEM/zsh/youtube-dl.zsh"
+mapargs source $BLEM/zsh/functions/*
