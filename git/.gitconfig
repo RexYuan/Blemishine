@@ -1,10 +1,19 @@
 [user]
 	name = RexYuan
 	email = r1218r1218@gmail.com
+
 [credential]
 	helper = osxkeychain
+
 [core]
 	excludesfile = ~/.gitignore
 	editor = code --wait
+
 [alias]
-	s = status
+	s = status --show-stash --renames
+	l = log --all --graph --decorate=short --pretty=oneline --abbrev-commit --abbrev=6 --max-count=10
+	ll = log --all --graph --decorate=auto --pretty=fuller --abbrev-commit --abbrev=6
+
+[status]
+	relativePaths = false
+	submodulesummary = true
