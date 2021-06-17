@@ -27,3 +27,9 @@
 	renames = copies
 	colorMoved = dimmed-zebra
 	colorMovedWS = allow-indentation-change
+
+[init]
+	defaultBranch = main
+
+[pull]
+	ff = only
