@@ -3,7 +3,12 @@
 	email = r1218r1218@gmail.com
 
 [credential]
-	helper = osxkeychain
+	helper = !"f() {\
+		if [ \"$(uname -s)\" = 'Darwin' ]; then\
+			git credential-osxkeychain \"$@\";\
+		elif [ \"$(uname -s)\" = 'Linux' ]; then\
+			git credential-store \"$@\";\
+		fi; }; f"
 
 [core]
 	excludesfile = ~/.gitignore
