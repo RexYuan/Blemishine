@@ -1,0 +1,142 @@
+{
+  "atomKeymap.promptV3Features": true,
+  "editor.fontSize": 16,
+  "terminal.integrated.fontSize": 16,
+  "[Log]": {
+    "editor.fontSize": 16
+  },
+  "editor.fontFamily": "DejaVu Sans Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.enablePreview": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.list.automaticKeyboardNavigation": false,
+  "window.restoreWindows": "folders",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.synctex(busy)",
+    "*.synctex.gz(busy)",
+    "*.nav",
+    "*.synctex.gz",
+    "_minted-*/*",
+    "_minted-*"
+  ],
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-shell-escape",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "latexmk_rconly",
+      "command": "latexmk",
+      "args": ["%DOC%"],
+      "env": {}
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"],
+      "env": {}
+    }
+  ],
+  "python.pythonPath": "/usr/local/opt/python@3.8/bin/python3",
+  "vsicons.dontShowNewVersionMessage": true,
+  "C_Cpp.updateChannel": "Insiders",
+  "editor.rulers": [72, 79, 99],
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#2b3239"
+  },
+  "workbench.colorTheme": "Tomorrow Night",
+  "explorer.confirmDragAndDrop": false,
+  "editor.minimap.enabled": false,
+  "cmake.configureOnOpen": false,
+  "C_Cpp.default.cppStandard": "gnu++20",
+  "C_Cpp.default.cStandard": "gnu17",
+
+  "todohighlight.keywords": ["DEBUG:", "FIX:", "REVIEW:", "NOTE:", "CLEAN:"],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "python.languageServer": "Pylance",
+  "files.insertFinalNewline": true,
+  "workbench.colorCustomizations": {
+    "terminal.background": "#1D1F21",
+    "terminal.foreground": "#C5C8C6",
+    "terminalCursor.background": "#C5C8C6",
+    "terminalCursor.foreground": "#C5C8C6",
+    "terminal.ansiBlack": "#1D1F21",
+    "terminal.ansiBlue": "#81A2BE",
+    "terminal.ansiBrightBlack": "#969896",
+    "terminal.ansiBrightBlue": "#81A2BE",
+    "terminal.ansiBrightCyan": "#8ABEB7",
+    "terminal.ansiBrightGreen": "#B5BD68",
+    "terminal.ansiBrightMagenta": "#B294BB",
+    "terminal.ansiBrightRed": "#CC6666",
+    "terminal.ansiBrightWhite": "#FFFFFF",
+    "terminal.ansiBrightYellow": "#F0C674",
+    "terminal.ansiCyan": "#8ABEB7",
+    "terminal.ansiGreen": "#B5BD68",
+    "terminal.ansiMagenta": "#B294BB",
+    "terminal.ansiRed": "#CC6666",
+    "terminal.ansiWhite": "#C5C8C6",
+    "terminal.ansiYellow": "#F0C674"
+  },
+  "files.trimTrailingWhitespace": true,
+  "C_Cpp.loggingLevel": "Debug"
+}
