@@ -1,3 +1,5 @@
+Include ~/Projects/BlemiSiFive/ssh/config
+
 Host quine
     HostName quine.iis.sinica.edu.tw
     User rex
