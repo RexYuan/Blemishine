@@ -16,8 +16,10 @@
 
 [alias]
 	s = status --show-stash --renames
-	l = log --all --graph --decorate=short --pretty=oneline --abbrev-commit --abbrev=6 --max-count=10
-	ll = log --all --graph --decorate=auto --pretty=fuller --abbrev-commit --abbrev=6
+	l = log --graph --decorate=short --pretty=oneline --abbrev-commit --abbrev=6 --max-count=10
+	la = log --all --graph --decorate=short --pretty=oneline --abbrev-commit --abbrev=6 --max-count=10
+	ll = log --graph --decorate=auto --pretty=fuller --abbrev-commit --abbrev=6
+	lla = log --all --graph --decorate=auto --pretty=fuller --abbrev-commit --abbrev=6
 	d = diff
 	dc = diff --cached
 
@@ -38,3 +40,7 @@
 
 [pull]
 	ff = only
+
+# see https://stackoverflow.com/q/6842687/2448540
+[http]
+	postBuffer = 1048576000
