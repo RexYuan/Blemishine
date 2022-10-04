@@ -14,4 +14,5 @@ endef
 .DEFAULT_GOAL := all
 
 .DEFAULT:
+	git submodule update --init --recursive
 	$(call mapdirs,$@)
