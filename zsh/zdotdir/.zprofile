@@ -9,6 +9,3 @@
 # non-interactive login shells read in order
 #   1. zprofile
 #   2. zlogin
-
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"

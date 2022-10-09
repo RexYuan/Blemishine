@@ -1,5 +1,14 @@
 
-export PATH="/usr/local/sbin:$PATH"
+# Set PATH, MANPATH, etc., for Homebrew.
+# https://stackoverflow.com/q/65259300/2448540
+arch="$(uname -m)"
+if [[ "$arch" == 'arm64' ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ "$arch" == 'x86_64' ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+else
+    exit 1
+fi
 
 export PATH="/Users/rexyuan/Library/Python/3.9:/Users/rexyuan/Library/Python/3.8/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/python@3.9/lib -L/usr/local/opt/python@3.8/lib"
