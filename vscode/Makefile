@@ -8,3 +8,9 @@ all:
 clean:
 	rm ~/Library/Application Support/Code/User/settings.json
 	rm ~/Library/Application Support/Code/User/keybindings.json
+
+.PHONY: install
+install:
+	for ext in $$(cat extensions); do   \
+		code --install-extension $$ext; \
+	done;
