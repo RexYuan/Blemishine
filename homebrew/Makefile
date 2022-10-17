@@ -1,6 +1,9 @@
 
-.PHONY: nothing
-nothing: ;
+.PHONY: all
+all: ;
+
+.PHONY: clean
+clean: ;
 
 .PHONY: install
 install: install-formulae

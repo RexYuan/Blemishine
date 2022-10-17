@@ -1,7 +1,7 @@
 
 .PHONY: all
 all:
-	ln -s $(realpath .)/config ~/.ssh/config
+	ln -s -f $(realpath .)/config ~/.ssh/config
 
 .PHONY: clean
 clean:

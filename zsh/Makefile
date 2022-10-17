@@ -1,7 +1,7 @@
 
 .PHONY: all
 all:
-	ln -s $(realpath .)/prime.zsh ~/.zshenv
+	ln -s -f $(realpath .)/prime.zsh ~/.zshenv
 
 .PHONY: clean
 clean:

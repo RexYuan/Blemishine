@@ -1,8 +1,8 @@
 
 .PHONY: all
 all:
-	ln -s $(realpath .)/.gitconfig ~/.gitconfig
-	ln -s $(realpath .)/.gitignore ~/.gitignore
+	ln -s -f $(realpath .)/.gitconfig ~/.gitconfig
+	ln -s -f $(realpath .)/.gitignore ~/.gitignore
 
 .PHONY: clean
 clean:

@@ -2,7 +2,8 @@
 DIRS = $(wildcard */)
 
 define mapdirs
-for dir in $(DIRS); do \
+@for dir in $(DIRS); do \
+	echo "make -C $$dir all"; \
 	$(call submake,$$dir,$(1)); \
 done
 endef
@@ -13,6 +14,9 @@ endef
 
 .DEFAULT_GOAL := all
 
-.DEFAULT:
+all:
 	git submodule update --init --recursive
 	$(call mapdirs,$@)
+
+.DEFAULT:
+	$(info nothing was done)
