@@ -1,4 +1,6 @@
 
+include ../base.mk
+
 .PHONY: all
 all:
 	ln -s -f $(realpath .)/prime.zsh ~/.zshenv

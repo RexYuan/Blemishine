@@ -99,9 +99,6 @@
   "vsicons.dontShowNewVersionMessage": true,
   "C_Cpp.updateChannel": "Insiders",
   "editor.rulers": [72, 79, 99],
-  "workbench.colorCustomizations": {
-    "editorRuler.foreground": "#2b3239"
-  },
   "workbench.colorTheme": "Tomorrow Night",
   "explorer.confirmDragAndDrop": false,
   "editor.minimap.enabled": false,
@@ -116,6 +113,7 @@
   "python.languageServer": "Pylance",
   "files.insertFinalNewline": true,
   "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#2b3239",
     "terminal.background": "#1D1F21",
     "terminal.foreground": "#C5C8C6",
     "terminalCursor.background": "#C5C8C6",
