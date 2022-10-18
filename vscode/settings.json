@@ -138,5 +138,10 @@
     "terminal.ansiYellow": "#F0C674"
   },
   "files.trimTrailingWhitespace": true,
-  "C_Cpp.loggingLevel": "Debug"
+  "C_Cpp.loggingLevel": "Debug",
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  }
 }
