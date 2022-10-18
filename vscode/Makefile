@@ -6,8 +6,7 @@ CODE_PREFIX=~/Library/Application\ Support/Code/User
 .PHONY: preq
 preq:
 	$(call assert_command_exists,code)
-	$(call assert_file_exists,$(CODE_PREFIX)/settings.json)
-	$(call assert_file_exists,$(CODE_PREFIX)/keybindings.json)
+	$(call assert_directory_exists,$(CODE_PREFIX))
 
 .PHONY: all
 all: preq

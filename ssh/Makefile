@@ -3,7 +3,8 @@ include ../base.mk
 
 .PHONY: preq
 preq:
-	$(call assert_file_exists,~/.ssh/config)
+	mkdir -p ~/.ssh/
+	$(call assert_directory_exists,~/.ssh/)
 
 .PHONY: all
 all: preq
