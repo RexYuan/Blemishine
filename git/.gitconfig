@@ -12,7 +12,6 @@
 
 [core]
 	excludesfile = ~/.gitignore
-	editor = code --wait
 
 [alias]
 	s = status --show-stash --renames
