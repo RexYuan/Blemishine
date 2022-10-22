@@ -1,6 +1,6 @@
 
 define not_found_exit
-echo "ERROR: $(1) not found"; \
+echo "⚠️  $(1) not found"; \
 exit 1
 endef
 

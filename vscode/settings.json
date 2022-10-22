@@ -95,7 +95,7 @@
       "env": {}
     }
   ],
-  "python.pythonPath": "/usr/local/opt/python@3.8/bin/python3",
+  "python.pythonPath": "/usr/local/opt/python@3.10/bin/python3",
   "vsicons.dontShowNewVersionMessage": true,
   "C_Cpp.updateChannel": "Insiders",
   "editor.rulers": [72, 79, 99],
