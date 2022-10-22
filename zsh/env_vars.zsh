@@ -14,12 +14,19 @@ fi
 
 # https://askubuntu.com/q/1021554/444384
 if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-    export EDITOR="code --wait --new-window"
-    export GIT_EDITOR="code --wait --new-window"
+    export PAGER="code"
+    export GIT_PAGER="code --wait"
+    export EDITOR="code"
+    export GIT_EDITOR="code --wait"
+    export VISUAL="code"
 elif [[ "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
+    export PAGER="less"
+    export GIT_PAGER="less"
     export EDITOR="nano"
     export GIT_EDITOR="nano"
+    export VISUAL="nano"
 else
     exit 1
 fi
 
+export BROWSER="open"

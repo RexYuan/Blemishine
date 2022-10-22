@@ -40,6 +40,13 @@
 [pull]
 	ff = only
 
-# see https://stackoverflow.com/q/6842687/2448540
+# https://stackoverflow.com/q/6842687/2448540
 [http]
 	postBuffer = 1048576000
+
+# https://stackoverflow.com/q/30024353/2448540
+[diff]
+    tool = default-difftool
+
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
