@@ -1,13 +1,14 @@
 
 include ../base.mk
 
-CODE_PREFIX=~/Library/Application\ Support/Code/User
+CODE_PREFIX := ~/Library/Application\ Support/Code/User
 
 .PHONY: preq
 preq:
 	$(call assert_command_exists,code)
 	$(call assert_directory_exists,$(CODE_PREFIX))
 
+.DEFAULT_GOAL := all
 .PHONY: all
 all: preq
 	ln -s -f $(realpath .)/settings.json $(CODE_PREFIX)/settings.json

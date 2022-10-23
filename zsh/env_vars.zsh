@@ -15,9 +15,9 @@ fi
 # https://askubuntu.com/q/1021554/444384
 if [[ "$TERM_PROGRAM" == "vscode" ]]; then
     export PAGER="code"
-    export GIT_PAGER="code --wait"
+    export GIT_PAGER="code --wait --reuse-window"
     export EDITOR="code"
-    export GIT_EDITOR="code --wait"
+    export GIT_EDITOR="code --wait --reuse-window"
     export VISUAL="code"
 elif [[ "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
     export PAGER="less"

@@ -5,15 +5,9 @@ include ../base.mk
 preq:
 	$(call assert_command_exists,brew)
 
-.PHONY: all
-all: ;
-
-.PHONY: clean
-clean: ;
-
 .PHONY: install
 install: install-formulae
-install: install-cask
+install: install-casks
 
 .PHONY: install-formulae
 install-formulae: preq
@@ -22,8 +16,8 @@ install-formulae: preq
 		brew install $$formula;         \
 	done;
 
-.PHONY: install-cask
-install-cask: preq
+.PHONY: install-casks
+install-casks: preq
 	# brew list --cask
 	for cask in $$(cat casks); do   \
 		brew install --cask $$cask; \
