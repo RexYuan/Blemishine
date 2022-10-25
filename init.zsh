@@ -1,7 +1,13 @@
 #!/bin/zsh
-
+#
 # run this:
 # /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/RexYuan/Blemishine/main/init.zsh)"
+#
+
+# https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+# keep sudo status until the end
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo "\n🟡 installing command line tools..."
 xcode-select --install
