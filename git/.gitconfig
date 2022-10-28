@@ -12,6 +12,8 @@
 
 [core]
 	excludesfile = ~/.gitignore
+	editor = code --wait
+	pager = less
 
 [alias]
 	s = status --show-stash --renames
@@ -21,7 +23,7 @@
 	lla = log --all --graph --decorate=auto --pretty=fuller --abbrev-commit --abbrev=6
 	d = diff
 	dc = diff --cached
-	dt= difftool --no-prompt
+	dt = difftool --no-prompt
 	dtc = difftool --cached --no-prompt
 
 [status]
@@ -48,7 +50,13 @@
 
 # https://stackoverflow.com/q/30024353/2448540
 [diff]
-    tool = default-difftool
+    tool = vscode
 
-[difftool "default-difftool"]
+[difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+	tool = vscode
+
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
