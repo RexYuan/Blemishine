@@ -1,12 +1,24 @@
 [submodule "zsh/lib/pure"]
 	path = zsh/lib/pure
 	url = https://github.com/sindresorhus/pure.git
+	shallow = true
 [submodule "zsh/lib/zsh-syntax-highlighting"]
 	path = zsh/lib/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+	shallow = true
 [submodule "terminal/tomorrow-theme"]
 	path = terminal/tomorrow-theme
 	url = https://github.com/chriskempson/tomorrow-theme.git
+	shallow = true
 [submodule "terminal/vscode-base16-term"]
 	path = terminal/vscode-base16-term
 	url = https://github.com/Glitchbone/vscode-base16-term.git
+	shallow = true
+[submodule "btt/GoldenChaos-BTT"]
+	path = btt/GoldenChaos-BTT
+	url = https://github.com/GoldenChaos/GoldenChaos-BTT.git
+	shallow = true
+[submodule "btt/Crypto-Touchbar-App"]
+	path = btt/Crypto-Touchbar-App
+	url = https://github.com/chrislennon/Crypto-Touchbar-App.git
+	shallow = true
