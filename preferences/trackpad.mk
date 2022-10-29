@@ -1,10 +1,9 @@
 
 # https://superuser.com/q/455755/372113
 # only settings for internal trackpad for now
-# trackpad settings require logout-login to take effect
 .PHONY: trackpad
 trackpad:
-	@# "Point & Click"
+	@# Point & Click
 	defaults write Apple\ Global\ Domain com.apple.trackpad.forceClick -bool false
 	defaults write Apple\ Global\ Domain ContextMenuGesture -int 1
 	defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -int 1
@@ -12,12 +11,12 @@ trackpad:
 	defaults write Apple\ Global\ Domain com.apple.trackpad.scaling -float 0.6875
 	defaults write com.apple.AppleMultitouchTrackpad ActuateDetents -int 1
 	defaults write com.apple.AppleMultitouchTrackpad ForceSuppressed -int 0
-	@# "Scroll & Zoom"
+	@# Scroll & Zoom
 	defaults write Apple\ Global\ Domain com.apple.swipescrolldirection -int 1
 	defaults write com.apple.AppleMultitouchTrackpad TrackpadPinch -int 1
 	defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 0
 	defaults write com.apple.AppleMultitouchTrackpad TrackpadRotate -int 1
-	@# "More Gestures"
+	@# More Gestures
 	defaults write Apple\ Global\ Domain AppleEnableSwipeNavigateWithScrolls -int 0
 	defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 2
 	defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
