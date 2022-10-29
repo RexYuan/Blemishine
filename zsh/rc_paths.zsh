@@ -10,7 +10,7 @@ export JAVA_HOME="/Users/rexyuan/Library/Caches/Coursier/arc/https/github.com/Ad
 if [[ -d "$HOME/Library/Application Support/Coursier" ]]; then
     export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
 else
-    echo "⚠️  Coursier not set up. Run \"cs setup\""
+    echo "🟠 Coursier not set up. Run \"cs setup\""
 fi
 # <<< coursier install directory <<<
 
@@ -18,7 +18,7 @@ fi
 if [[ -f "$HOME/.cargo/env" ]]; then
     source "$HOME/.cargo/env"
 else
-    echo "⚠️  Rust not set up. Run \"rustup-init\""
+    echo "🟠 Rust not set up. Run \"rustup-init\""
 fi
 
 # ruby

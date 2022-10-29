@@ -9,7 +9,7 @@ if [[ "$arch" == 'arm64' ]]; then
 elif [[ "$arch" == 'x86_64' ]]; then
     export BREW_PREFIX="/usr/local"
 else
-    echo "⚠️  BREW_PREFIX not set"
+    echo "🟠 BREW_PREFIX not set"
 fi
 
 # https://askubuntu.com/q/1021554/444384
@@ -20,8 +20,8 @@ elif [[ "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
     export EDITOR="nano"
     export VISUAL="nano"
 else
-    echo "⚠️  EDITOR not set"
-    echo "⚠️  VISUAL not set"
+    echo "🟠 EDITOR not set"
+    echo "🟠 VISUAL not set"
 fi
 
 export PAGER="less"
