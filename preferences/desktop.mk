@@ -38,7 +38,7 @@ desktop:
 	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 48 "<dict><key>enabled</key><false/></dict>"
 	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 49 "<dict><key>enabled</key><false/></dict>"
 	@# Hot Corners
-	defaults write com.apple.dock wvous-bl-corner -int true
-	defaults write com.apple.dock wvous-br-corner -int true
-	defaults write com.apple.dock wvous-tl-corner -int true
-	defaults write com.apple.dock wvous-tr-corner -int true
+	defaults write com.apple.dock wvous-bl-corner -int 0
+	defaults write com.apple.dock wvous-br-corner -int 0
+	defaults write com.apple.dock wvous-tl-corner -int 0
+	defaults write com.apple.dock wvous-tr-corner -int 0
