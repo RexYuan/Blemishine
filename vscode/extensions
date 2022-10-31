@@ -1,5 +1,7 @@
 aaron-bond.better-comments
+asciidoctor.asciidoctor-vscode
 Compulim.vscode-clock
+donjayamanne.githistory
 eamodio.gitlens
 freebroccolo.reasonml
 jeff-hykin.better-cpp-syntax
@@ -19,6 +21,7 @@ ms-vscode.atom-keybindings
 ms-vscode.cpptools
 ms-vscode.makefile-tools
 ms-vscode.Theme-TomorrowKit
+mshr-h.veriloghdl
 ocamllabs.ocaml-platform
 PKief.material-icon-theme
 scala-lang.scala
