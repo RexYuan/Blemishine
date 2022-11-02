@@ -11,6 +11,7 @@ git
 htop
 imagemagick
 louisbrunner/valgrind/valgrind
+mas
 opam
 qcachegrind
 rclone
