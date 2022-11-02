@@ -5,6 +5,10 @@ include ../base.mk
 preq:
 	$(call assert_command_exists,brew)
 
+.DEFAULT_GOAL := all
+.PHONY: all
+all: ;
+
 .PHONY: install
 install: install-formulae
 install: install-casks

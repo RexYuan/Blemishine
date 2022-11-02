@@ -6,6 +6,7 @@ preq:
 	mkdir -p ~/.ssh/
 	$(call assert_directory_exists,~/.ssh/)
 
+.DEFAULT_GOAL := all
 .PHONY: all
 all: preq
 	ln -s -f $(realpath .)/config ~/.ssh/config
