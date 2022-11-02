@@ -7,7 +7,7 @@ USER := ${USER}
 .PHONY: timeout
 timeout:
 	cd /etc/sudoers.d/; \
-	echo "Defaults timestamp_timeout=$(TIMEOUT_MIN)" | sudo EDITOR='tee' visudo -f $(USER)
+	echo "Defaults timestamp_timeout=$(TIMEOUT_MIN)" | sudo EDITOR="tee" VISUAL="tee" visudo -f $(USER)
 
 .PHONY: timeout-clean
 timeout-clean:
