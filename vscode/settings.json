@@ -141,5 +141,6 @@
     "**/.bloop": true,
     "**/.metals": true,
     "**/.ammonite": true
-  }
+  },
+  "git.detectSubmodulesLimit": 50
 }
