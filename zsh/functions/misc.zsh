@@ -26,3 +26,16 @@ function ls-path
 {
     echo "${PATH//:/\n}"
 }
+
+# https://stackoverflow.com/a/30247099/2448540
+# intent: behaves like Python's String's title method
+function title
+{
+    ret=()
+    for word in $@; do
+        hd=$(echo $word | cut -c 1 | tr "[:lower:]" "[:upper:]")
+        tl=$(echo $word | cut -c 2- | tr "[:upper:]" "[:lower:]")
+        ret+=("$hd$tl")
+    done
+    echo $ret
+}

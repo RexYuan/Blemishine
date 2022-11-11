@@ -12,3 +12,4 @@ alias cat="bat --theme Tomorrow-Night --paging=never"
 # https://superuser.com/q/117841/372113
 alias less="bat --theme Tomorrow-Night --paging=always"
 alias fd="fd --hidden --no-ignore --follow --color=auto"
+alias ag="ag --pager \"bat --theme Tomorrow-Night --paging=always\" --unrestricted"
