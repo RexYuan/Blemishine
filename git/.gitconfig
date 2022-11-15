@@ -13,7 +13,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = code --wait
-	pager = less
+	pager = command -v bat &> /dev/null && bat --theme Tomorrow-Night --paging=always || less
 
 [alias]
 	s = status --show-stash --renames
@@ -25,6 +25,8 @@
 	dc = diff --cached
 	dt = difftool --no-prompt
 	dtc = difftool --cached --no-prompt
+	sinit = submodule update --init --recursive
+	sdeinit = submodule deinit --all --force
 
 [status]
 	relativePaths = false
