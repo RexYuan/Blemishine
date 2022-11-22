@@ -62,3 +62,6 @@
 
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
+
+[log]
+	date = relative

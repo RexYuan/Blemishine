@@ -18,4 +18,5 @@ if command -v bat &> /dev/null; then \
 
     alias fd="fd --hidden --no-ignore --follow --color=auto"
     alias ag="ag --pager \"bat --theme Tomorrow-Night --paging=always\" --unrestricted"
+    alias h="history 0 | bat"
 fi

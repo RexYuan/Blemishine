@@ -1,0 +1,5 @@
+
+function upmas
+{
+    mas upgrade
+}

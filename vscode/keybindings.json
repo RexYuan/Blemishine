@@ -493,7 +493,7 @@
     "when": "textInputFocus"
   },
   {
-    "key": "ctrl+f",
+    "key": "ctrl+r",
     "command": "references-view.findReferences",
     "when": "editorHasReferenceProvider"
   },
@@ -501,5 +501,23 @@
     "key": "shift+alt+f12",
     "command": "-references-view.findReferences",
     "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "cmd+r",
+    "command": "-workbench.action.reloadWindow",
+    "when": "isDevelopment"
+  },
+  {
+    "key": "cmd+r",
+    "command": "editor.action.referenceSearch.trigger"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.quickOpenNavigateNextInRecentFilesPicker",
+    "when": "inQuickOpen && inRecentFilesPicker"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.openRecent"
   }
 ]
