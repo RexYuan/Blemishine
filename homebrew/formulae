@@ -1,6 +1,7 @@
 ag
 autoconf
 bat
+coreutils
 coursier/formulas/coursier
 djvu2pdf
 fd

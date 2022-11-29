@@ -1,4 +1,5 @@
 
+# usage: upbrew
 function upbrew
 {
     brew update

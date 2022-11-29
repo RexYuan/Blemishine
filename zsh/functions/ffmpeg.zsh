@@ -1,6 +1,7 @@
 
 # https://stackoverflow.com/q/3255674/2448540
 # convert/extract any media to mp3
+# usage: to-mp3 <media>
 function to-mp3
 {
     if [[ ! $# -eq 1 ]]; then
@@ -12,6 +13,7 @@ function to-mp3
 
 # https://superuser.com/q/1041816/372113
 # make mp4 from song and still image
+# usage: mp3vid <image> <music>
 function mp3vid
 {
     if [[ ! $# -eq 2 ]]; then
@@ -23,6 +25,7 @@ function mp3vid
 
 # https://superuser.com/q/624565/372113
 # convert flv to mp4
+# usage: flv-to-mp4 <flv media>
 function flv-to-mp4
 {
     if [[ ! $# -eq 1 || $1 != *.flv ]]; then

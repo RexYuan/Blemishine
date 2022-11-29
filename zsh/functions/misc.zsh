@@ -1,6 +1,15 @@
 
+# usage: usages
+function usages
+{
+    for fun_file in $BLEM/zsh/functions/*.zsh; do
+        grep '^function' -B 1 $fun_file | grep -v '^function' | grep -v '\-\-' | sed 's/usage: //'
+    done
+}
+
 # https://zsh.sourceforge.io/Doc/Release/Conditional-Expressions.html
 # https://zsh.sourceforge.io/Doc/Release/Parameters.html#Parameters-Set-By-The-Shell
+# usage: mcd <dirname>
 function mcd
 {
     if [[ ! $# -eq 1 ]]; then
@@ -22,6 +31,7 @@ function mcd
 }
 
 # https://zsh.sourceforge.io/Doc/Release/Expansion.html#Parameter-Expansion:~:text=%24%7Bname//pattern/repl%7D
+# usage: ls-path
 function ls-path
 {
     echo "${PATH//:/\n}"
@@ -29,6 +39,7 @@ function ls-path
 
 # https://stackoverflow.com/a/30247099/2448540
 # intent: behaves like Python's String's title method
+# usage: title <string>
 function title
 {
     ret=()
