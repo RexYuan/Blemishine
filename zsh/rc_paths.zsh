@@ -26,3 +26,6 @@ export PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
 
 # coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# sed
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"

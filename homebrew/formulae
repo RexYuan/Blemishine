@@ -9,6 +9,7 @@ ffmpeg
 gcc@10
 gh
 git
+gnu-sed
 htop
 imagemagick
 louisbrunner/valgrind/valgrind
