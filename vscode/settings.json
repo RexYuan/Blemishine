@@ -142,5 +142,12 @@
     "**/.metals": true,
     "**/.ammonite": true
   },
-  "git.detectSubmodulesLimit": 50
+  "git.detectSubmodulesLimit": 50,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "perl.perlInc": ["/Users/rexyuan/perl5/lib/perl5/5.30.3/darwin-thread-multi-2level",
+                   "/Users/rexyuan/perl5/lib/perl5/5.30.3",
+                   "/Users/rexyuan/perl5/lib/perl5/darwin-thread-multi-2level",
+                   "/Users/rexyuan/perl5/lib/perl5"]
 }
