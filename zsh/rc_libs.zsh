@@ -1,7 +1,13 @@
 
 fpath+="$BLEM/zsh/lib/pure"
 
-PURE_PROMPT_SYMBOL="🌸  ❯"
+# screen cannot show unicode
+if [[ -v STY ]]; then
+    PURE_PROMPT_SYMBOL="$STY  ❯"
+else
+    PURE_PROMPT_SYMBOL="🌸  ❯"
+fi
+
 autoload -U promptinit; promptinit
 prompt pure
 
