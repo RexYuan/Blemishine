@@ -2,9 +2,26 @@
 # usage: dl <youtube video url>
 function dl
 {
-    youtube-dl --no-playlist \
-               --merge-output-format mp4 \
-               -f 'bestvideo+bestaudio' $@
+    yt-dlp --no-playlist \
+           --merge-output-format mp4 \
+           -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' $@
+}
+
+function dl-live
+{
+    yt-dlp -w --write-description \
+              --write-thumbnail \
+              --embed-thumbnail \
+              --live-from-start \
+              --wait-for-video 15 \
+              --sleep-subtitles 1 \
+              --download-archive .archive \
+              --progress --merge-output-format mp4 \
+              -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' \
+              --add-metadata \
+              --write-info-json \
+              --write-annotations \
+              --cookies cookies.txt $@
 }
 
 # usage: dl-pl <youtube playlist url>
