@@ -27,6 +27,7 @@
 	dtc = difftool --cached --no-prompt
 	sinit = submodule update --init --recursive
 	sdeinit = submodule deinit --all --force
+	supdate = submodule update --recursive --remote
 
 [status]
 	relativePaths = false
