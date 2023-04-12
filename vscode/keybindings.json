@@ -282,7 +282,7 @@
     "when": "editorFocus && findWidgetVisible"
   },
   {
-    "key": "o",
+    "key": "alt+o",
     "command": "workbench.action.debug.stepOver",
     "when": "debugState == 'stopped'"
   },
