@@ -28,6 +28,8 @@
 	sinit = submodule update --init --recursive
 	sdeinit = submodule deinit --all --force
 	supdate = submodule update --recursive --remote
+	b = branch --all
+	sw = switch
 
 [status]
 	relativePaths = false
