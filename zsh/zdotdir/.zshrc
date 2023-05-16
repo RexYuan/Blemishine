@@ -12,4 +12,3 @@ source "$BLEM/zsh/rc_funcs.zsh"
 source "$BLEM/zsh/rc_history.zsh"
 source "$BLEM/zsh/rc_libs.zsh"
 
-source "$HOME/Projects/BlemiSiFive/zsh/include.zsh"
