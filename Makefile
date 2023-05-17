@@ -19,7 +19,7 @@ preq:
 .DEFAULT_GOAL := all
 .PHONY: all
 all: preq
-	git submodule update --init --recursive
+	# git submodule update --init --recursive
 	$(call mapdirs,all)
 
 .DEFAULT:

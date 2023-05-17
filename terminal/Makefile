@@ -20,7 +20,7 @@ all: preq
 	@# https://apple.stackexchange.com/q/352354/130792
 	osascript -e 'tell application "Terminal" to set font name of settings set "Tomorrow Night" to "Menlo"'
 	osascript -e 'tell application "Terminal" to set font size of settings set "Tomorrow Night" to 18'
-	osascript -e 'tell application "Terminal" to quit'
+	# osascript -e 'tell application "Terminal" to quit'
 	@# https://github.com/sharkdp/bat#adding-new-themes
 	ln -s -f $(realpath .)/Tomorrow-Night.tmTheme ~/.config/bat/themes/Tomorrow-Night.tmTheme
 	bat cache --build

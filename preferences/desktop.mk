@@ -1,6 +1,8 @@
 
 .PHONY: desktop
 desktop:
+	@# General
+	defaults write Apple\ Global\ Domain AppleInterfaceStyle -string "Dark"
 	@# Dock
 	defaults write com.apple.dock tilesize -int 64
 	defaults write com.apple.dock magnification -bool false
