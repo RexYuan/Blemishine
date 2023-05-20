@@ -29,3 +29,6 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # sed
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+# python c extension
+export C_INCLUDE_PATH="/usr/local/Cellar/python@3.11/3.11.3/Frameworks/Python.framework/Versions/3.11/include/python3.11/:$C_INCLUDE_PATH"
