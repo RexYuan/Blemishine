@@ -1,4 +1,6 @@
-Include ~/Projects/BlemiSiFive/ssh/config
+Host *
+    ServerAliveInterval 60
+    ServerAliveCountMax 30
 
 Host quine
     HostName quine.iis.sinica.edu.tw

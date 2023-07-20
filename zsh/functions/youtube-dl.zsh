@@ -27,7 +27,7 @@ function dl-live
 # usage: dl-pl <youtube playlist url>
 function dl-pl
 {
-    youtube-dl --yes-playlist --ignore-errors \
+    yt-dlp --yes-playlist --ignore-errors \
                --merge-output-format mp4 \
                -f 'bestvideo+bestaudio' $@
 }
@@ -35,7 +35,7 @@ function dl-pl
 # usage: hqdl <youtube video url>
 function hqdl
 {
-    youtube-dl --no-playlist \
+    yt-dlp --no-playlist \
                --merge-output-format mp4 \
                -f 'bestvideo[ext=webm]+bestaudio[ext=webm]/bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' $@
 }
@@ -43,7 +43,7 @@ function hqdl
 # usage: hqdl-pl <youtube playlist url>
 function hqdl-pl
 {
-    youtube-dl --yes-playlist --ignore-errors \
+    yt-dlp --yes-playlist --ignore-errors \
                --merge-output-format mp4 \
                -f 'bestvideo[ext=webm]+bestaudio[ext=webm]/bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' $@
 }
@@ -51,7 +51,7 @@ function hqdl-pl
 # usage: dl-audio <youtube video url>
 function dl-audio
 {
-    youtube-dl --extract-audio \
+    yt-dlp --extract-audio \
                --audio-format mp3 \
                --audio-quality 0 $@
 }

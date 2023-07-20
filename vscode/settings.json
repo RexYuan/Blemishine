@@ -151,5 +151,6 @@
                    "/Users/rexyuan/perl5/lib/perl5/darwin-thread-multi-2level",
                   "/Users/rexyuan/perl5/lib/perl5"
                 ],
-                "editor.formatOnPaste": false
+                "editor.formatOnPaste": false,
+                "security.workspace.trust.untrustedFiles": "open"
 }
