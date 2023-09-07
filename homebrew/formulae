@@ -1,3 +1,4 @@
+ansible
 autoconf
 bat
 chrome-cli
@@ -16,6 +17,7 @@ gnu-sed
 guile
 htop
 imagemagick
+macs-fan-control
 mas
 moreutils
 node

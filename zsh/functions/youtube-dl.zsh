@@ -7,6 +7,7 @@ function dl
            -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' $@
 }
 
+# usage dl-live <youtube live url>
 function dl-live
 {
     yt-dlp -w --write-description \
