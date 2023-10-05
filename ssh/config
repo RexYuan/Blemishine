@@ -38,3 +38,8 @@ Host nuc
 Host pi
     HostName 192.168.0.166
     User pi
+
+Host flashstor
+    HostName flashstor.rexyuan.com
+    User rex
+    Port 7777
