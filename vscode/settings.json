@@ -153,5 +153,6 @@
                 ],
                 "editor.formatOnPaste": false,
                 "security.workspace.trust.untrustedFiles": "open",
-                "redhat.telemetry.enabled": true
+                "redhat.telemetry.enabled": true,
+                "editor.accessibilitySupport": "off"
 }
