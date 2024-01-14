@@ -15,29 +15,15 @@ Host fm3
     HostName 140.109.16.44
     User rex
 
-Host jaid
-    HostName jaid.ddns.net
-    User rex
-    Port 7777
-
-Host aigecko
-    HostName 140.122.184.73
-    User rex
-    Port 5566
-
 Host uvm
     HostName localhost
     Port 2375
     User urex
 
 Host nuc
-    HostName 192.168.0.103
+    HostName nuc.rexyuan.com
     User rex
     Port 7777
-
-Host pi
-    HostName 192.168.0.166
-    User pi
 
 Host flashstor
     HostName flashstor.rexyuan.com

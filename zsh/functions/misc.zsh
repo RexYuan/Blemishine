@@ -50,3 +50,11 @@ function title
     done
     echo $ret
 }
+
+# flush dns
+# usage: flush-dns
+function flush-dns
+{
+    sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+    sudo killall -HUP mDNSResponder
+}
