@@ -155,5 +155,6 @@
                 "security.workspace.trust.untrustedFiles": "open",
                 "redhat.telemetry.enabled": true,
                 "editor.accessibilitySupport": "off",
-                "terminal.integrated.inheritEnv": false
+                "terminal.integrated.inheritEnv": false,
+                "notebook.lineNumbers": "on"
 }
