@@ -1,6 +1,7 @@
 ansible
 autoconf
 bat
+bclm
 chrome-cli
 cmake
 cmocka
