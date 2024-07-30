@@ -28,7 +28,6 @@ python@3.11
 qcachegrind
 rclone
 ruby
-rustup-init
 sbt
 shellcheck
 the_silver_searcher
