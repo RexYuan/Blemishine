@@ -156,5 +156,7 @@
                 "redhat.telemetry.enabled": true,
                 "editor.accessibilitySupport": "off",
                 "terminal.integrated.inheritEnv": false,
-                "notebook.lineNumbers": "on"
+                "notebook.lineNumbers": "on",
+                "javascript.updateImportsOnFileMove.enabled": "always",
+                "typescript.updateImportsOnFileMove.enabled": "always"
 }
