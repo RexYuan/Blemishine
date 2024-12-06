@@ -158,5 +158,12 @@
                 "terminal.integrated.inheritEnv": false,
                 "notebook.lineNumbers": "on",
                 "javascript.updateImportsOnFileMove.enabled": "always",
-                "typescript.updateImportsOnFileMove.enabled": "always"
+                "typescript.updateImportsOnFileMove.enabled": "always",
+                "github.copilot.enable": {
+                  "*": true,
+                  "plaintext": false,
+                  "markdown": false,
+                  "scminput": false
+                },
+                "makefile.configureOnOpen": true
 }
