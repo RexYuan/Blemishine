@@ -165,5 +165,9 @@
                   "markdown": false,
                   "scminput": false
                 },
-                "makefile.configureOnOpen": true
+                "makefile.configureOnOpen": true,
+                "jupyter.askForKernelRestart": false,
+                "security.allowedUNCHosts": [
+                  "wsl.localhost"
+                ]
 }

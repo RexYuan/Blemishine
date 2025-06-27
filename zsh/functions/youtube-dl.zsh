@@ -62,3 +62,28 @@ function dl-360
 {
     dl --user-agent \"\" $@
 }
+
+function yt-fcp
+{
+    if [ -z "$1" ]; then
+        echo "Usage: yt_fcp <video_url>"
+        return 1
+    fi
+
+    local url="$1"
+    local filename="downloaded_video.mp4"
+    local final_output="final_output.mov"
+
+    echo "Downloading video..."
+    yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' --recode-video mp4 -o "$filename" "$url"
+
+    if [ ! -f "$filename" ]; then
+        echo "Download failed!"
+        return 1
+    fi
+
+    echo "Converting to Apple ProRes for Final Cut Pro..."
+    ffmpeg -i "$filename" -c:v prores -profile:v 3 -c:a pcm_s16le "$final_output"
+
+    echo "Done! File saved as $final_output"
+}

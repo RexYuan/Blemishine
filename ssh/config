@@ -20,27 +20,22 @@ Host uvm
     Port 2375
     User urex
 
-Host nuc
+Host home
     HostName nuc.rexyuan.com
     User rex
     Port 7777
 
-Host nuc-lan
+Host nuc
     HostName nuc.lan
     User rex
     Port 7777
 
 Host flashstor
-    HostName flashstor.rexyuan.com
-    User rex
-    Port 7777
-
-Host flashstor2
-    HostName flashstor2.rexyuan.com
-    User rex
-    Port 7778
-
-Host flashstor-lan
     HostName flashstor.lan
     User rex
     Port 7778
+
+Host flashstor-offsite
+    HostName flashstor.rexyuan.com
+    User rex
+    Port 7777
