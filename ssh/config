@@ -25,6 +25,11 @@ Host home
     User rex
     Port 7777
 
+Host air
+    HostName air.lan
+    User rexyuan
+    Port 22
+
 Host nuc
     HostName nuc.lan
     User rex

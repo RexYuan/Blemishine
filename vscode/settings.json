@@ -169,5 +169,7 @@
                 "jupyter.askForKernelRestart": false,
                 "security.allowedUNCHosts": [
                   "wsl.localhost"
-                ]
+                ],
+                "editor.overtypeCursorStyle": "line",
+                "editor.autoClosingOvertype": "never"
 }

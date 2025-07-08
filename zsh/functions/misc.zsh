@@ -58,3 +58,13 @@ function flush-dns
     sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
     sudo killall -HUP mDNSResponder
 }
+
+# keep sudo session alive while running a command
+# usage: with-sudo-keepalive <command> [args...]
+function with-sudo-keepalive {
+    sudo -v
+    while true; do sudo -n true; sleep 60; done 2>/dev/null &
+    local KEEP_SUDO_PID=$!
+    trap "kill $KEEP_SUDO_PID" EXIT
+    "$@"
+}
