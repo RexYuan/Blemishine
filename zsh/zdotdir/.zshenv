@@ -3,4 +3,3 @@
 #
 
 source "$BLEM/zsh/env_vars.zsh"
-source "$HOME/.cargo/env"
