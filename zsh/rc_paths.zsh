@@ -14,6 +14,9 @@ eval $(opam env)
 # curl
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
+# pipx
+export PATH="$PATH:/Users/rexyuan/.local/bin"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
