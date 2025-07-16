@@ -27,11 +27,13 @@ moreutils
 ocaml
 opam
 openjdk
+pipx
 rclone
 rsync
 ruby
 samba
 shellcheck
+stress-ng
 telnet
 the_silver_searcher
 timelimit
