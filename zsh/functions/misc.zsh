@@ -1,6 +1,6 @@
 
-# usage: usages
-function usages
+# usage: usage
+function usage
 {
     for fun_file in $BLEM/zsh/functions/*.zsh; do
         grep '^function' -B 1 $fun_file | grep -v '^function' | grep -v '\-\-' | sed 's/usage: //'

@@ -2,33 +2,14 @@ Host *
     ServerAliveInterval 60
     ServerAliveCountMax 30
 
-Host quine
-    HostName quine.iis.sinica.edu.tw
-    User rex
-
-Host frege
-    HostName frege.iis.sinica.edu.tw
-    User rex
-    ProxyJump quine
-
-Host fm3
-    HostName 140.109.16.44
-    User rex
-
 Host uvm
-    HostName localhost
-    Port 2375
-    User urex
-
-Host home
-    HostName nuc.rexyuan.com
+    HostName 127.0.0.1
     User rex
-    Port 7777
+    Port 2222
 
 Host air
     HostName 192.168.50.125
     User rexyuan
-    Port 7777
 
 Host nuc
     HostName 192.168.50.24
@@ -41,6 +22,12 @@ Host flashstor
     Port 7778
 
 Host flashstor-offsite
-    HostName flashstor.rexyuan.com
+    HostName 192.168.51.226
     User rex
     Port 7777
+
+Host ts-nuc.mau-elevator.ts.net ts-flashstor*.mau-elevator.ts.net
+    User rex
+
+Host ts-air.mau-elevator.ts.net
+    User rexyuan
