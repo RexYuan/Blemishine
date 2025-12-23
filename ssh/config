@@ -26,8 +26,11 @@ Host flashstor-offsite
     User rex
     Port 7777
 
-Host ts-nuc.mau-elevator.ts.net ts-flashstor*.mau-elevator.ts.net
+Host ts-nuc nuc.ts ts-nuc.mau-elevator.ts.net
     User rex
 
-Host ts-air.mau-elevator.ts.net
+Host ts-flashstor* flashstor*.ts ts-flashstor*.mau-elevator.ts.net
+    User rex
+
+Host ts-air air.ts ts-air.mau-elevator.ts.net
     User rexyuan
