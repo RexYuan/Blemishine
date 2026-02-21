@@ -57,6 +57,15 @@ function dl-audio
                --audio-quality 0 $@
 }
 
+# usage: dl-thumbnail <youtube video url>
+function dl-thumbnail
+{
+    yt-dlp --skip-download \
+           --write-thumbnail \
+           --convert-thumbnails png \
+           "$@"
+}
+
 # usage: dl-360 <youtube video url>
 function dl-360
 {

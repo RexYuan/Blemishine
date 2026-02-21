@@ -7,7 +7,7 @@ FILE := /etc/pam.d/sudo
 .PHONY: touchid
 touchid:
 	if [[ ! $$(grep -n '$(LINE)' $(FILE)) ]]; then \
-		sudo sed -i '' '2s/^/$(LINE)\n/' $(FILE); \
+		sudo gsed -i '2s/^/$(LINE)\n/' $(FILE); \
 	fi
 
 # https://stackoverflow.com/q/14093452/2448540
@@ -15,5 +15,5 @@ touchid:
 .PHONY: touchid-clean
 touchid-clean:
 	if [[ $$(grep -n '$(LINE)' $(FILE)) ]]; then \
-		sudo sed -i '' "$$(grep -n '$(LINE)' $(FILE) | cut -d : -f 1 | head -n 1)d" $(FILE); \
+		sudo gsed -i "$$(grep -n '$(LINE)' $(FILE) | cut -d : -f 1 | head -n 1)d" $(FILE); \
 	fi

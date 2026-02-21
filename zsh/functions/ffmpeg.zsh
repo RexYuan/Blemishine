@@ -36,23 +36,19 @@ function flv-to-mp4
 }
 
 # make a video as Quick Look–friendly as possible on macOS
+# guarantees:
+#  - zero quality loss WHEN Apple can decode the source
+#  - unavoidable single-step loss ONLY when Apple cannot
 # strategy:
-#  - HEVC + 'hev1'        -> lossless tag fix to 'hvc1' (stream copy)
-#  - HEVC (other tag)     -> MP4 remux with 'hvc1' (stream copy)
-#  - H.264 / MPEG-4       -> MP4 remux (stream copy)
-#  - everything else      -> re-encode to H.264/AAC MP4
-# usage: fix-quicklook <media>
+#  - HEVC + hev1 + 8-bit yuv420p -> lossless tag fix to hvc1
+#  - HEVC + 8-bit yuv420p        -> MP4 remux with hvc1
+#  - AVC  + yuv420p              -> MP4 remux (container-dependent; FLV may fail)
+#  - everything else             -> transcode ONCE to AVC/AAC (visually lossless)
+# usage: fix-quicklook <media> [media ...]
 function fix-quicklook
 {
-    if [[ ! $# -eq 1 ]]; then
-        echo "usage: fix-quicklook <media>"
-        return 1
-    fi
-
-    local input="$1"
-
-    if [[ ! -f "$input" ]]; then
-        echo "fix-quicklook: '$input' not found"
+    if (( $# == 0 )); then
+        echo "usage: fix-quicklook <media> [media ...]"
         return 1
     fi
 
@@ -65,116 +61,156 @@ function fix-quicklook
         return 1
     fi
 
-    echo "== fix-quicklook =="
-    echo "Input : $input"
+    local overall_rc=0
 
-    local codec tag format duration width height
-    codec=$(ffprobe -v error -select_streams v:0 \
-             -show_entries stream=codec_name \
-             -of default=nw=1:nk=1 "$input")
-    tag=$(ffprobe -v error -select_streams v:0 \
-             -show_entries stream=codec_tag_string \
-             -of default=nw=1:nk=1 "$input")
-    format=$(ffprobe -v error \
-             -show_entries format=format_name \
-             -of default=nw=1:nk=1 "$input")
-    duration=$(ffprobe -v error \
-               -show_entries format=duration \
-               -of default=nw=1:nk=1 "$input")
-    width=$(ffprobe -v error -select_streams v:0 \
+    for input in "$@"; do
+        echo "== fix-quicklook =="
+
+        if [[ ! -f "$input" ]]; then
+            echo "fix-quicklook: '$input' not found"
+            overall_rc=1
+            echo
+            continue
+        fi
+
+        echo "Input : $input"
+
+        # ---------- probe ----------
+        local codec tag format duration width height pix_fmt bit_depth
+        codec=$(ffprobe -v error -select_streams v:0 \
+            -show_entries stream=codec_name \
+            -of default=nw=1:nk=1 "$input")
+        tag=$(ffprobe -v error -select_streams v:0 \
+            -show_entries stream=codec_tag_string \
+            -of default=nw=1:nk=1 "$input")
+        pix_fmt=$(ffprobe -v error -select_streams v:0 \
+            -show_entries stream=pix_fmt \
+            -of default=nw=1:nk=1 "$input")
+        bit_depth=$(ffprobe -v error -select_streams v:0 \
+            -show_entries stream=bits_per_raw_sample \
+            -of default=nw=1:nk=1 "$input")
+        format=$(ffprobe -v error \
+            -show_entries format=format_name \
+            -of default=nw=1:nk=1 "$input")
+        duration=$(ffprobe -v error \
+            -show_entries format=duration \
+            -of default=nw=1:nk=1 "$input")
+        width=$(ffprobe -v error -select_streams v:0 \
             -show_entries stream=width \
             -of default=nw=1:nk=1 "$input")
-    height=$(ffprobe -v error -select_streams v:0 \
-             -show_entries stream=height \
-             -of default=nw=1:nk=1 "$input")
+        height=$(ffprobe -v error -select_streams v:0 \
+            -show_entries stream=height \
+            -of default=nw=1:nk=1 "$input")
 
-    if [[ -z "$codec" ]]; then
-        echo "fix-quicklook: could not detect video stream (codec)."
-        return 1
-    fi
+        if [[ -z "$codec" ]]; then
+            echo "fix-quicklook: could not detect video stream"
+            overall_rc=1
+            echo
+            continue
+        fi
 
-    echo "Codec : $codec"
-    [[ -n "$tag" ]] && echo "Tag   : $tag"
-    [[ -n "$format" ]] && echo "Format: $format"
-    if [[ -n "$duration" ]]; then
-        printf "Length: %.1f seconds\n" "$duration"
-    fi
-    if [[ -n "$width" && -n "$height" ]]; then
-        echo "Res   : ${width}x${height}"
-    fi
+        # Friendly names for display
+        local vcodec_name="$codec"
+        if [[ "$codec" == "h264" ]]; then
+            vcodec_name="AVC (h264)"
+        elif [[ "$codec" == "hevc" ]]; then
+            vcodec_name="HEVC (hevc)"
+        fi
 
-    local base="${input%.*}"
-    local output mode will_transcode=0
+        echo "Codec : $vcodec_name"
+        [[ -n "$tag" ]]      && echo "Tag   : $tag"
+        [[ -n "$pix_fmt" ]]  && echo "Pix   : $pix_fmt"
+        [[ -n "$bit_depth" ]]&& echo "Bits  : $bit_depth"
+        [[ -n "$format" ]]   && echo "Format: $format"
+        [[ -n "$duration" ]] && printf "Length: %.1f seconds\n" "$duration"
+        [[ -n "$width" && -n "$height" ]] && echo "Res   : ${width}x${height}"
 
-    # Case 1: HEVC with 'hev1' tag -> lossless tag fix
-    if [[ "$codec" == "hevc" && "$tag" == "hev1" ]]; then
-        output="${base}_hvc1.mp4"
-        mode="HEVC + 'hev1' → lossless tag fix to 'hvc1' (stream copy)"
+        local base="${input%.*}"
+        local output="${base}_qt.mp4"
+        local try_remux=0
+        local will_transcode=0
+        local is_hevc=0
 
-    # Case 2: HEVC (any other tag, including hvc1/empty) -> MP4 remux with 'hvc1'
-    elif [[ "$codec" == "hevc" ]]; then
-        output="${base}_qt.mp4"
-        mode="HEVC ($tag) → MP4 remux with 'hvc1' (stream copy)"
+        # ---------- decision ----------
+        if [[ "$codec" == "hevc" && "$pix_fmt" == "yuv420p" && "$bit_depth" != "10" ]]; then
+            echo "Mode  : HEVC (8-bit yuv420p) → MP4 remux + hvc1 (lossless)"
+            try_remux=1
+            is_hevc=1
 
-    # Case 3: H.264 / MPEG-4 -> MP4 remux
-    elif [[ "$codec" == "h264" || "$codec" == "mpeg4" ]]; then
-        output="${base}_qt.mp4"
-        mode="$codec → MP4 remux (stream copy)"
+        elif [[ "$codec" == "h264" && "$pix_fmt" == "yuv420p" ]]; then
+            echo "Mode  : AVC (yuv420p) → MP4 remux (may fail for FLV)"
+            try_remux=1
 
-    # Case 4: everything else (vp9, av1, etc.) -> re-encode
-    else
-        output="${base}_qt.mp4"
-        mode="Non-Apple-friendly codec ($codec) → re-encode to H.264/AAC MP4"
-        will_transcode=1
-    fi
+        else
+            echo "Mode  : Unsupported by Quick Look → transcode ONCE to AVC/AAC"
+            will_transcode=1
+        fi
 
-    echo "Mode  : $mode"
+        # ---------- execution ----------
+        local rc=0
 
-    # Tell you upfront if it might take a while
-    if (( will_transcode )); then
-        if [[ -n "$duration" ]]; then
-            local dur_int=${duration%.*}
-            if (( dur_int > 1800 )); then
-                echo "Note : This will re-encode ~${dur_int}s (~$(($dur_int/60)) min) of video at ${width}x${height}."
-                echo "       ⚠ This is a long job and may take quite a while depending on your CPU."
-            elif (( dur_int > 300 )); then
-                echo "Note : Re-encoding ~${dur_int}s (~$(($dur_int/60)) min) of video; this may take a bit."
+        if (( try_remux )); then
+            echo "ffmpeg: attempting stream copy (+faststart)"
+            if (( is_hevc )); then
+                ffmpeg -hide_banner -loglevel error \
+                    -i "$input" \
+                    -c copy -movflags +faststart -tag:v hvc1 \
+                    "$output"
             else
-                echo "Note : Re-encoding a short clip (~${dur_int}s); should be relatively quick."
+                ffmpeg -hide_banner -loglevel error \
+                    -i "$input" \
+                    -c copy -movflags +faststart \
+                    "$output"
             fi
-        else
-            echo "Note : Re-encoding; duration unknown, may take a while depending on length/resolution."
+
+            rc=$?
+            if [[ $rc -eq 0 ]]; then
+                echo "✅ Output (lossless): $output"
+                echo
+                continue
+            fi
+
+            echo "⚠ Lossless remux failed; falling back to transcode."
+            will_transcode=1
         fi
-    else
-        echo "Note : Stream copy only (no re-encode); this should be very fast."
-    fi
 
-    # Actually run ffmpeg
-    if (( will_transcode )); then
-        echo "ffmpeg: transcode video to libx264, audio to AAC"
-        ffmpeg -hide_banner -loglevel error \
-            -i "$input" \
-            -c:v libx264 -crf 18 -preset medium \
-            -c:a aac -b:a 128k \
-            "$output"
-    else
-        if [[ "$codec" == "hevc" ]]; then
-            echo "ffmpeg: stream copy with -tag:v hvc1"
+        if (( will_transcode )); then
+            if [[ -n "$duration" ]]; then
+                local dur_int=${duration%.*}
+                if (( dur_int > 3600 )); then
+                    echo "Note : Transcoding ~$(($dur_int/60)) minutes at ${width}x${height}. This will take a long time."
+                elif (( dur_int > 1800 )); then
+                    echo "Note : Transcoding ~$(($dur_int/60)) minutes at ${width}x${height}."
+                elif (( dur_int > 300 )); then
+                    echo "Note : Transcoding ~$(($dur_int/60)) minutes."
+                else
+                    echo "Note : Transcoding ~${dur_int}s."
+                fi
+            else
+                echo "Note : Transcoding (duration unknown)."
+            fi
+
+            echo "ffmpeg: transcode → AVC (H.264) CRF 16 + AAC"
             ffmpeg -hide_banner -loglevel error \
-                -i "$input" -c copy -tag:v hvc1 "$output"
-        else
-            echo "ffmpeg: stream copy to MP4"
-            ffmpeg -hide_banner -loglevel error \
-                -i "$input" -c copy "$output"
+                -i "$input" \
+                -map 0:v:0 -map '0:a?' \
+                -c:v libx264 -preset slow -crf 16 \
+                -pix_fmt yuv420p \
+                -movflags +faststart \
+                -c:a aac -b:a 160k \
+                "$output"
+
+            rc=$?
+            if [[ $rc -eq 0 ]]; then
+                echo "✅ Output (transcoded): $output"
+            else
+                echo "❌ ffmpeg failed (exit code $rc)"
+                overall_rc=1
+            fi
         fi
-    fi
 
-    local status=$?
-    if [[ $status -eq 0 ]]; then
-        echo "✅ Output: $output"
-    else
-        echo "❌ ffmpeg failed (exit code $status)"
-    fi
+        echo
+    done
 
-    return $status
+    return $overall_rc
 }
