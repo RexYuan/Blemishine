@@ -98,8 +98,12 @@
   "python.pythonPath": "/usr/local/opt/python@3.10/bin/python3",
   "vsicons.dontShowNewVersionMessage": true,
   "C_Cpp.updateChannel": "Insiders",
-  "editor.rulers": [72, 79, 99],
-  "workbench.colorTheme": "Tomorrow Night",
+  "editor.rulers": [
+    70,
+    80,
+    100,
+    120
+  ],
   "explorer.confirmDragAndDrop": false,
   "editor.minimap.enabled": false,
   "cmake.configureOnOpen": false,
@@ -185,5 +189,6 @@
                 },
                 "[github-actions-workflow]": {
                   "editor.defaultFormatter": "redhat.vscode-yaml"
-                }
+                },
+                "workbench.colorTheme": "Tomorrow Night"
 }
