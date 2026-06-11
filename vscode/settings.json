@@ -98,12 +98,7 @@
   "python.pythonPath": "/usr/local/opt/python@3.10/bin/python3",
   "vsicons.dontShowNewVersionMessage": true,
   "C_Cpp.updateChannel": "Insiders",
-  "editor.rulers": [
-    70,
-    80,
-    100,
-    120
-  ],
+  "editor.rulers": [70, 80, 100, 120],
   "explorer.confirmDragAndDrop": false,
   "editor.minimap.enabled": false,
   "cmake.configureOnOpen": false,
@@ -150,45 +145,47 @@
   "[python]": {
     "editor.formatOnType": true
   },
-  "perl.perlInc": ["/Users/rexyuan/perl5/lib/perl5/5.30.3/darwin-thread-multi-2level",
-                   "/Users/rexyuan/perl5/lib/perl5/5.30.3",
-                   "/Users/rexyuan/perl5/lib/perl5/darwin-thread-multi-2level",
-                  "/Users/rexyuan/perl5/lib/perl5"
-                ],
-                "editor.formatOnPaste": false,
-                "security.workspace.trust.untrustedFiles": "open",
-                "redhat.telemetry.enabled": true,
-                "editor.accessibilitySupport": "off",
-                "terminal.integrated.inheritEnv": false,
-                "notebook.lineNumbers": "on",
-                "javascript.updateImportsOnFileMove.enabled": "always",
-                "typescript.updateImportsOnFileMove.enabled": "always",
-                "github.copilot.enable": {
-                  "*": true,
-                  "plaintext": false,
-                  "markdown": false,
-                  "scminput": false
-                },
-                "makefile.configureOnOpen": true,
-                "jupyter.askForKernelRestart": false,
-                "security.allowedUNCHosts": [
-                  "wsl.localhost"
-                ],
-                "editor.overtypeCursorStyle": "line",
-                "editor.autoClosingOvertype": "never",
-                "[dockercompose]": {
-                  "editor.insertSpaces": true,
-                  "editor.tabSize": 2,
-                  "editor.autoIndent": "advanced",
-                  "editor.quickSuggestions": {
-                    "other": true,
-                    "comments": false,
-                    "strings": true
-                  },
-                  "editor.defaultFormatter": "redhat.vscode-yaml"
-                },
-                "[github-actions-workflow]": {
-                  "editor.defaultFormatter": "redhat.vscode-yaml"
-                },
-                "workbench.colorTheme": "Tomorrow Night"
+  "perl.perlInc": [
+    "/Users/rexyuan/perl5/lib/perl5/5.30.3/darwin-thread-multi-2level",
+    "/Users/rexyuan/perl5/lib/perl5/5.30.3",
+    "/Users/rexyuan/perl5/lib/perl5/darwin-thread-multi-2level",
+    "/Users/rexyuan/perl5/lib/perl5"
+  ],
+  "editor.formatOnPaste": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "redhat.telemetry.enabled": true,
+  "editor.accessibilitySupport": "off",
+  "terminal.integrated.inheritEnv": false,
+  "notebook.lineNumbers": "on",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "makefile.configureOnOpen": true,
+  "jupyter.askForKernelRestart": false,
+  "security.allowedUNCHosts": ["wsl.localhost"],
+  "editor.overtypeCursorStyle": "line",
+  "editor.autoClosingOvertype": "never",
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "workbench.colorTheme": "Tomorrow Night",
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  }
 }

@@ -14,11 +14,3 @@
 	path = terminal/vscode-base16-term
 	url = https://github.com/Glitchbone/vscode-base16-term.git
 	shallow = true
-[submodule "btt/GoldenChaos-BTT"]
-	path = btt/GoldenChaos-BTT
-	url = https://github.com/GoldenChaos/GoldenChaos-BTT.git
-	shallow = true
-[submodule "btt/Crypto-Touchbar-App"]
-	path = btt/Crypto-Touchbar-App
-	url = https://github.com/chrislennon/Crypto-Touchbar-App.git
-	shallow = true
